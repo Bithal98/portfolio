@@ -1,0 +1,233 @@
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, FileText, Github, Linkedin, Terminal, Sparkles, Cpu, Layers, Activity, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { profileData } from '../data/profileData';
+
+export default function Hero({ onOpenResume }) {
+  const [activeLogIndex, setActiveLogIndex] = useState(0);
+
+  const telemetryLogs = [
+    { source: "LangGraph-Agent", text: "News verification state graph running: official portal cross-check...", status: "VALIDATED" },
+    { source: "OdiaLLM-Core", text: "90M Transformer forward pass: 32K BPE vocab, cosine decay 0.0001", status: "READY" },
+    { source: "FinTech-Scorecard", text: "WoE transformation complete. Information Value IV > 0.35 on 8 features", status: "OPTIMIZED" },
+    { source: "YOLOv9-Edge", text: "Dual-stage detection inference: vehicle & number plate (32 FPS)", status: "LIVE" },
+    { source: "AutoEDA-Agent", text: "Autonomous dataset profiling & Plotly chart generation pipeline", status: "IDLE" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveLogIndex((prev) => (prev + 1) % telemetryLogs.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden cyber-grid">
+      {/* Background radial glow accents */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/3 right-10 w-[400px] h-[300px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* Left Column: Headline and Positioning */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            
+            {/* Status Pill */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 shadow-inner">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="text-xs font-mono font-medium text-slate-300">
+                Analyst @ StratLytics • <span className="text-cyan-400 font-semibold">Open for AI/ML Roles</span>
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+              Building Intelligent AI Systems That{" "}
+              <span className="text-gradient-cyan block sm:inline">
+                Solve Real-World Problems.
+              </span>
+            </h1>
+
+            {/* Subtitle / Bio */}
+            <p className="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
+              <span className="text-white font-medium">Bithal Kumar Sahoo</span> — AI/ML Engineer specializing in{" "}
+              <span className="text-cyan-300">Multi-Agent Systems (LangGraph)</span>,{" "}
+              <span className="text-blue-300">Generative AI & LLMs</span>,{" "}
+              <span className="text-emerald-300">Credit Risk Scorecards</span>, and{" "}
+              <span className="text-purple-300">Computer Vision</span>. Transforming technical research and complex data into working production applications.
+            </p>
+
+            {/* Quick Stats Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
+              {profileData.stats.map((stat, idx) => (
+                <div key={idx} className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
+                  <div className="text-xl sm:text-2xl font-bold font-mono text-cyan-400">{stat.value}</div>
+                  <div className="text-xs text-slate-400 font-medium mt-0.5">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="#featured"
+                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-medium text-sm shadow-[0_0_20px_rgba(6,182,212,0.35)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-0.5"
+              >
+                <span>Explore Projects</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <button
+                onClick={onOpenResume}
+                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-500 text-slate-200 hover:text-white font-medium text-sm transition-all transform hover:-translate-y-0.5"
+              >
+                <FileText className="w-4 h-4 text-cyan-400" />
+                <span>Resume (PDF)</span>
+              </button>
+
+              <div className="flex items-center gap-2 ml-1">
+                <a
+                  href={profileData.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-slate-600 text-slate-300 hover:text-white transition-all"
+                  title="GitHub Profile"
+                >
+                  <Github className="w-4 h-4" />
+                </a>
+                <a
+                  href={profileData.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-400 transition-all"
+                  title="LinkedIn Profile"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Academic & Professional Trust Badges */}
+            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400 pt-2 border-t border-slate-800/80">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" /> B.Tech IT, OUTR (CGPA 8.5)
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" /> Analyst @ StratLytics Consulting
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> 15+ Engineered Repositories
+              </span>
+            </div>
+
+          </div>
+
+          {/* Right Column: Interactive AI Telemetry Terminal */}
+          <div className="lg:col-span-5">
+            <div className="rounded-2xl bg-[#0b101d]/90 border border-slate-700/80 shadow-2xl shadow-cyan-950/20 backdrop-blur-xl overflow-hidden text-left relative">
+              
+              {/* Terminal Title Bar */}
+              <div className="flex items-center justify-between px-4 py-3 bg-[#080c16] border-b border-slate-800">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                  <span className="text-xs font-mono text-slate-400 ml-2">bithal-ai-runtime ~ live telemetry</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-[10px] font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/50">
+                  <Activity className="w-3 h-3 animate-spin text-cyan-400" />
+                  <span>ONLINE</span>
+                </div>
+              </div>
+
+              {/* Terminal Body */}
+              <div className="p-5 space-y-4 font-mono text-xs">
+                
+                {/* Active Architecture Status */}
+                <div className="space-y-2">
+                  <div className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold flex items-center justify-between">
+                    <span>Engineered AI Subsystems</span>
+                    <span className="text-cyan-400 text-[10px]">ALL ACTIVE</span>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <div className="p-2 rounded bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Cpu className="w-3.5 h-3.5 text-cyan-400" />
+                        <span className="text-slate-200">LangGraph Multi-Agent Workflows</span>
+                      </div>
+                      <span className="text-[10px] text-emerald-400 font-bold">STATE GRAPH</span>
+                    </div>
+
+                    <div className="p-2 rounded bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+                        <span className="text-slate-200">OdiaLLM Transformer (From Scratch)</span>
+                      </div>
+                      <span className="text-[10px] text-blue-400 font-bold">90M PARAMS</span>
+                    </div>
+
+                    <div className="p-2 rounded bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                        <span className="text-slate-200">Credit Risk Scorecards & Reject Inference</span>
+                      </div>
+                      <span className="text-[10px] text-emerald-400 font-bold">KS 0.79</span>
+                    </div>
+
+                    <div className="p-2 rounded bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Layers className="w-3.5 h-3.5 text-amber-400" />
+                        <span className="text-slate-200">YOLOv9 ANPR & Edge Vision</span>
+                      </div>
+                      <span className="text-[10px] text-amber-400 font-bold">32 FPS</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Real-time Simulated Telemetry Stream */}
+                <div className="pt-2 border-t border-slate-800/80 space-y-2">
+                  <div className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold flex items-center justify-between">
+                    <span>Live Pipeline Monitor</span>
+                    <span className="text-xs text-slate-500">Auto-Refresh</span>
+                  </div>
+
+                  <div className="p-3 rounded-lg bg-black/60 border border-slate-800 font-mono text-[11px] space-y-1 min-h-[75px]">
+                    <div className="flex items-center justify-between text-slate-400">
+                      <span className="text-cyan-400 font-bold">[{telemetryLogs[activeLogIndex].source}]</span>
+                      <span className="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300">
+                        {telemetryLogs[activeLogIndex].status}
+                      </span>
+                    </div>
+                    <p className="text-slate-200 pt-1 leading-snug">
+                      &gt; {telemetryLogs[activeLogIndex].text}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Repository Link Footer */}
+                <div className="pt-2 flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800/80">
+                  <span>GitHub: <span className="text-slate-200 font-semibold">@Bithal98</span></span>
+                  <a
+                    href="https://github.com/Bithal98"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-semibold"
+                  >
+                    View 22+ Repositories &rarr;
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
