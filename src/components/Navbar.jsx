@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, FileText, Menu, X, Terminal, Sparkles, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, FileText, Menu, X, Terminal, ExternalLink } from 'lucide-react';
 import { profileData } from '../data/profileData';
 
 export default function Navbar({ onOpenResume }) {
@@ -15,13 +15,12 @@ export default function Navbar({ onOpenResume }) {
   }, []);
 
   const navLinks = [
-    { name: "Pillars", href: "#pillars" },
+    { name: "Specialization", href: "#pillars" },
     { name: "Featured", href: "#featured" },
-    { name: "Projects (15)", href: "#projects" },
+    { name: "All Projects (15)", href: "#projects" },
     { name: "Experience", href: "#experience" },
     { name: "Research & LLMs", href: "#research" },
     { name: "Skills", href: "#skills" },
-    { name: "Video Demos", href: "#videos" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -72,10 +71,11 @@ export default function Navbar({ onOpenResume }) {
               href={profileData.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-slate-800/60 border border-slate-700/60 text-slate-300 hover:text-white hover:border-slate-500 hover:bg-slate-800 transition-all"
-              title="GitHub Profile"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/70 border border-slate-700/60 text-slate-200 hover:text-white hover:border-slate-500 hover:bg-slate-800 text-xs font-mono transition-all"
+              title="GitHub Profile (@Bithal98)"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-4 h-4 text-cyan-400" />
+              <span>@Bithal98</span>
             </a>
 
             <a
@@ -137,9 +137,9 @@ export default function Navbar({ onOpenResume }) {
                 href={profileData.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs text-slate-300 hover:text-white"
+                className="flex items-center gap-2 text-xs text-slate-300 hover:text-white font-mono"
               >
-                <Github className="w-4 h-4" /> GitHub
+                <Github className="w-4 h-4 text-cyan-400" /> GitHub
               </a>
               <a
                 href={profileData.linkedin}

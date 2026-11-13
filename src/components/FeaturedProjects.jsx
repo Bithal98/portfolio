@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Github, Play, Layers, Sparkles, Cpu, CheckCircle2, Bot, TrendingUp, Scan } from 'lucide-react';
+import { ArrowUpRight, Github, Sparkles } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
 
 export default function FeaturedProjects({ onSelectProject }) {
@@ -125,18 +125,11 @@ export default function FeaturedProjects({ onSelectProject }) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white transition-all"
+                  className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-slate-200 hover:text-white text-xs font-mono font-medium transition-all"
                   title="View Source on GitHub"
                 >
-                  <Github className="w-4 h-4" />
-                </a>
-
-                <a
-                  href="#videos"
-                  className="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-cyan-400 transition-all"
-                  title="Watch Video Demonstration"
-                >
-                  <Play className="w-4 h-4" />
+                  <Github className="w-4 h-4 text-cyan-400" />
+                  <span>GitHub Code</span>
                 </a>
               </div>
 

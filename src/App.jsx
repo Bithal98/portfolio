@@ -7,7 +7,6 @@ import ProjectLibrary from './components/ProjectLibrary';
 import ResearchBuilds from './components/ResearchBuilds';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
-import VideoShowcase from './components/VideoShowcase';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
@@ -32,7 +31,6 @@ export default function App() {
         <ResearchBuilds />
         <Experience />
         <Skills />
-        <VideoShowcase />
         <Contact onOpenResume={() => setResumeModalOpen(true)} />
       </main>
 

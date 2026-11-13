@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, Github, ExternalLink, Play, Layers, CheckCircle2, Cpu, ArrowRight, ShieldCheck, Activity } from 'lucide-react';
+import { X, Github, ArrowRight, CheckCircle2, Cpu } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
@@ -163,21 +163,12 @@ export default function ProjectModal({ project, onClose }) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-mono font-semibold transition-all"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-semibold text-xs font-mono shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all"
               >
                 <Github className="w-4 h-4" />
                 <span>View GitHub Repository</span>
               </a>
             )}
-
-            <a
-              href="#videos"
-              onClick={onClose}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-mono font-semibold transition-all"
-            >
-              <Play className="w-4 h-4" />
-              <span>LinkedIn / Demo Video</span>
-            </a>
           </div>
 
           <button
