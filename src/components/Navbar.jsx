@@ -27,7 +27,7 @@ export default function Navbar({ onOpenResume }) {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-[#070b14]/90 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/40 py-3' 
+        ? 'bg-[#050914]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl shadow-black/60 py-3' 
         : 'bg-transparent py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,20 +35,20 @@ export default function Navbar({ onOpenResume }) {
           
           {/* Brand Logo */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/30 border border-cyan-500/40 flex items-center justify-center text-cyan-400 group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(56,189,248,0.4)] transition-all">
-              <Terminal className="w-5 h-5 text-cyan-400" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-transparent border border-emerald-500/40 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all duration-300">
+              <Terminal className="w-5 h-5 text-emerald-400" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-mono font-bold text-lg text-white tracking-wider group-hover:text-cyan-300 transition-colors">
-                  BITHAL<span className="text-cyan-400">.AI</span>
+                <span className="font-mono font-bold text-lg text-white tracking-wider group-hover:text-emerald-300 transition-colors">
+                  BITHAL<span className="text-emerald-400">.AI</span>
                 </span>
                 <span className="flex h-2 w-2 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
               </div>
-              <p className="text-[11px] font-mono text-slate-400 hidden sm:block tracking-tight">AI/ML ENGINEER & ANALYST</p>
+              <p className="text-[11px] font-mono text-slate-400 hidden sm:block tracking-tight">AI/ML ENGINEER & SYSTEMS BUILDER</p>
             </div>
           </a>
 
@@ -58,7 +58,7 @@ export default function Navbar({ onOpenResume }) {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors"
+                className="px-3.5 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-300 hover:text-emerald-300 hover:bg-emerald-950/40 hover:border-emerald-800/50 border border-transparent transition-all duration-200"
               >
                 {link.name}
               </a>
@@ -71,10 +71,10 @@ export default function Navbar({ onOpenResume }) {
               href={profileData.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/70 border border-slate-700/60 text-slate-200 hover:text-white hover:border-slate-500 hover:bg-slate-800 text-xs font-mono transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-white/10 text-slate-300 hover:text-white hover:border-emerald-500/50 hover:bg-slate-800 text-xs font-mono transition-all duration-200 hover:-translate-y-0.5"
               title="GitHub Profile (@Bithal98)"
             >
-              <Github className="w-4 h-4 text-cyan-400" />
+              <Github className="w-4 h-4 text-emerald-400" />
               <span>@Bithal98</span>
             </a>
 
@@ -82,7 +82,7 @@ export default function Navbar({ onOpenResume }) {
               href={profileData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-slate-800/60 border border-slate-700/60 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 hover:bg-slate-800 transition-all"
+              className="p-2 rounded-lg bg-slate-900/80 border border-white/10 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/40 hover:bg-slate-800 transition-all duration-200 hover:-translate-y-0.5"
               title="LinkedIn Profile"
             >
               <Linkedin className="w-4 h-4" />
@@ -90,9 +90,9 @@ export default function Navbar({ onOpenResume }) {
 
             <button
               onClick={onOpenResume}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 hover:text-white text-xs font-mono font-medium hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs font-mono shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:shadow-[0_0_25px_rgba(16,185,129,0.55)] transition-all duration-200 hover:-translate-y-0.5"
             >
-              <FileText className="w-3.5 h-3.5 text-cyan-400" />
+              <FileText className="w-3.5 h-3.5 text-slate-950" />
               <span>Resume</span>
             </button>
           </div>
@@ -101,13 +101,13 @@ export default function Navbar({ onOpenResume }) {
           <div className="flex sm:hidden items-center gap-2">
             <button
               onClick={onOpenResume}
-              className="px-2.5 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono"
+              className="px-3 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-semibold"
             >
               Resume
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-slate-800/70 text-slate-300 hover:text-white"
+              className="p-2 rounded-lg bg-slate-900 text-slate-300 hover:text-white border border-white/10"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -118,14 +118,14 @@ export default function Navbar({ onOpenResume }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#070b14]/95 border-b border-slate-800 px-6 py-4 space-y-3 backdrop-blur-xl">
-          <div className="grid grid-cols-2 gap-2 pb-3 border-b border-slate-800">
+        <div className="lg:hidden bg-[#050914]/98 border-b border-white/10 px-6 py-4 space-y-3 backdrop-blur-2xl">
+          <div className="grid grid-cols-2 gap-2 pb-3 border-b border-white/10">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-cyan-400"
+                className="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-emerald-950/50 hover:text-emerald-400"
               >
                 {link.name}
               </a>
@@ -139,13 +139,13 @@ export default function Navbar({ onOpenResume }) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-xs text-slate-300 hover:text-white font-mono"
               >
-                <Github className="w-4 h-4 text-cyan-400" /> GitHub
+                <Github className="w-4 h-4 text-emerald-400" /> GitHub
               </a>
               <a
                 href={profileData.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs text-slate-300 hover:text-cyan-400"
+                className="flex items-center gap-2 text-xs text-slate-300 hover:text-emerald-400"
               >
                 <Linkedin className="w-4 h-4" /> LinkedIn
               </a>
@@ -155,7 +155,7 @@ export default function Navbar({ onOpenResume }) {
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 text-xs font-mono"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500 text-black font-bold text-xs font-mono"
             >
               <FileText className="w-3.5 h-3.5" /> View Resume
             </button>

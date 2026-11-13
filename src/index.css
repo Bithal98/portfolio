@@ -8,72 +8,64 @@
   }
   
   body {
-    background-color: #070b14;
-    color: #f1f5f9;
+    background-color: #040711;
+    color: #f3f4f6;
   }
 }
 
-/* Custom Cyberpunk / Minimal Engineering Backgrounds */
-.cyber-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+/* Luxury Cyber Matrix / Radial Dot Mesh */
+.cyber-dots-emerald {
+  background-image: radial-gradient(rgba(16, 185, 129, 0.15) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
 }
 
-.cyber-dots {
-  background-image: radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px);
-  background-size: 24px 24px;
+.cyber-grid-dark {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
 /* Glassmorphism Panel */
-.glass-panel {
-  background: rgba(12, 19, 34, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.glass-panel-luxury {
+  background: rgba(11, 18, 34, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.glass-panel-hover:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px -3px rgba(56, 189, 248, 0.15);
-}
-
 /* Text Gradients */
-.text-gradient-cyan {
-  background: linear-gradient(135deg, #ffffff 20%, #38bdf8 65%, #818cf8 100%);
+.text-gradient-mint {
+  background: linear-gradient(135deg, #ffffff 15%, #34d399 60%, #10b981 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-blue {
-  background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #6366f1 100%);
+.text-gradient-emerald-violet {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 45%, #a855f7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Glowing Border Accent */
-.glow-border {
-  position: relative;
+/* Interactive Hover Elevation */
+.card-interactive {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.glow-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  background: linear-gradient(90deg, rgba(56, 189, 248, 0.4), rgba(99, 102, 241, 0.2), rgba(16, 185, 129, 0.3));
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0.6;
+
+.card-interactive:hover {
+  transform: translateY(-6px) scale(1.008);
+  border-color: rgba(16, 185, 129, 0.45);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 30px -4px rgba(16, 185, 129, 0.25);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #070b14;
+  background: #040711;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -82,5 +74,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: #10b981;
 }
