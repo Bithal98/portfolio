@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, FileText, Github, Linkedin, Terminal, Sparkles, Cpu, Layers, Activity, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ArrowDown, FileText, Github, Linkedin, Terminal, Sparkles, Cpu, Layers, Activity, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { profileData } from '../data/profileData';
 
 export default function Hero({ onOpenResume }) {
@@ -20,8 +20,13 @@ export default function Hero({ onOpenResume }) {
     return () => clearInterval(timer);
   }, []);
 
+  const scrollToAbout = () => {
+    const el = document.getElementById('about');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden cyber-grid-dark">
+    <section className="relative pt-28 pb-24 md:pt-36 md:pb-32 overflow-hidden cyber-grid-dark">
       {/* Background radial glow accents: Emerald & Subtle Cosmic Violet */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[380px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute top-1/3 right-10 w-[420px] h-[320px] bg-violet-500/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -29,18 +34,42 @@ export default function Hero({ onOpenResume }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Headline and Positioning */}
+          {/* Left Column: Headline, Avatar, and Positioning */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Status Pill */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:border-emerald-400 transition-colors">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-xs font-mono font-medium text-slate-300">
-                Analyst @ StratLytics • <span className="text-emerald-400 font-semibold">Open for AI/ML Roles</span>
-              </span>
+            {/* Top Row: User Avatar Circle + Status Pill */}
+            <div className="flex items-center gap-3.5">
+              
+              {/* Sleek Circular Profile Avatar Box with Zoom & Animated Halo */}
+              <a
+                href="#about"
+                className="group relative flex items-center justify-center cursor-pointer"
+                title="Click to view About Bithal"
+              >
+                <div className="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-emerald-400 via-teal-300 to-violet-500 group-hover:scale-110 shadow-[0_0_20px_rgba(16,185,129,0.5)] transition-all duration-300">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-slate-950 border border-black relative">
+                    <img
+                      src="./bithal.jpg"
+                      alt="Bithal Kumar Sahoo"
+                      className="w-full h-full object-cover object-center group-hover:scale-120 transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+                {/* Active Green Dot */}
+                <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-[#040711] shadow-sm"></span>
+              </a>
+
+              {/* Status Pill */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:border-emerald-400 transition-colors">
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-xs font-mono font-medium text-slate-300">
+                  Analyst @ StratLytics • <span className="text-emerald-400 font-semibold">Open for AI/ML Roles</span>
+                </span>
+              </div>
+
             </div>
 
             {/* Main Headline */}
@@ -157,37 +186,49 @@ export default function Hero({ onOpenResume }) {
                   </div>
 
                   <div className="space-y-1.5">
-                    <div className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-emerald-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group">
+                    <a
+                      href="#featured"
+                      className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-emerald-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group"
+                    >
                       <div className="flex items-center gap-2">
                         <Cpu className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
                         <span className="text-slate-200 group-hover:text-emerald-300 transition-colors">LangGraph Multi-Agent Workflows</span>
                       </div>
                       <span className="text-[10px] text-emerald-400 font-bold bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-900/50">STATE GRAPH</span>
-                    </div>
+                    </a>
 
-                    <div className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-violet-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group">
+                    <a
+                      href="#research"
+                      className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-violet-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group"
+                    >
                       <div className="flex items-center gap-2">
                         <Sparkles className="w-3.5 h-3.5 text-violet-400 group-hover:scale-110 transition-transform" />
                         <span className="text-slate-200 group-hover:text-violet-300 transition-colors">OdiaLLM Transformer (From Scratch)</span>
                       </div>
                       <span className="text-[10px] text-violet-400 font-bold bg-violet-950/60 px-1.5 py-0.5 rounded border border-violet-900/50">90M PARAMS</span>
-                    </div>
+                    </a>
 
-                    <div className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-amber-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group">
+                    <a
+                      href="#featured"
+                      className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-amber-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group"
+                    >
                       <div className="flex items-center gap-2">
                         <ShieldCheck className="w-3.5 h-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
                         <span className="text-slate-200 group-hover:text-amber-300 transition-colors">Credit Risk Scorecards & Reject Inference</span>
                       </div>
                       <span className="text-[10px] text-amber-400 font-bold bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-900/50">KS 0.79</span>
-                    </div>
+                    </a>
 
-                    <div className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-teal-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group">
+                    <a
+                      href="#featured"
+                      className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-teal-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group"
+                    >
                       <div className="flex items-center gap-2">
                         <Layers className="w-3.5 h-3.5 text-teal-400 group-hover:scale-110 transition-transform" />
                         <span className="text-slate-200 group-hover:text-teal-300 transition-colors">YOLOv9 ANPR & Edge Vision</span>
                       </div>
                       <span className="text-[10px] text-teal-400 font-bold bg-teal-950/60 px-1.5 py-0.5 rounded border border-teal-900/50">32 FPS</span>
-                    </div>
+                    </a>
                   </div>
                 </div>
 
@@ -230,6 +271,22 @@ export default function Hero({ onOpenResume }) {
           </div>
 
         </div>
+
+        {/* Clickable Animated Bouncing Scroll Indicator */}
+        <div className="pt-16 pb-2 flex justify-center">
+          <button
+            onClick={scrollToAbout}
+            className="group flex flex-col items-center gap-2 text-slate-400 hover:text-emerald-400 transition-all duration-300 cursor-pointer"
+          >
+            <span className="text-[11px] font-mono tracking-widest uppercase text-slate-500 group-hover:text-emerald-400 transition-colors">
+              Scroll Down to Explore
+            </span>
+            <div className="w-6 h-10 rounded-full border-2 border-white/20 group-hover:border-emerald-400 flex items-start justify-center p-1.5 transition-colors">
+              <div className="w-1.5 h-2.5 rounded-full bg-emerald-400 animate-bounce"></div>
+            </div>
+          </button>
+        </div>
+
       </div>
     </section>
   );

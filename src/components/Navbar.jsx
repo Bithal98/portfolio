@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, FileText, Menu, X, Terminal, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, FileText, Menu, X, Terminal } from 'lucide-react';
 import { profileData } from '../data/profileData';
 
 export default function Navbar({ onOpenResume }) {
@@ -15,6 +15,7 @@ export default function Navbar({ onOpenResume }) {
   }, []);
 
   const navLinks = [
+    { name: "About", href: "#about" },
     { name: "Specialization", href: "#pillars" },
     { name: "Featured", href: "#featured" },
     { name: "All Projects (15)", href: "#projects" },
@@ -33,10 +34,12 @@ export default function Navbar({ onOpenResume }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Brand Logo */}
+          {/* Brand Logo with Avatar Icon */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-transparent border border-emerald-500/40 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all duration-300">
-              <Terminal className="w-5 h-5 text-emerald-400" />
+            <div className="w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500 to-teal-400 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.5)] transition-all duration-300">
+              <div className="w-full h-full rounded-full overflow-hidden bg-slate-950">
+                <img src="./bithal.jpg" alt="Bithal Sahoo" className="w-full h-full object-cover" />
+              </div>
             </div>
             <div>
               <div className="flex items-center gap-2">
@@ -58,7 +61,7 @@ export default function Navbar({ onOpenResume }) {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3.5 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-300 hover:text-emerald-300 hover:bg-emerald-950/40 hover:border-emerald-800/50 border border-transparent transition-all duration-200"
+                className="px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium text-slate-300 hover:text-emerald-300 hover:bg-emerald-950/40 hover:border-emerald-800/50 border border-transparent transition-all duration-200"
               >
                 {link.name}
               </a>
