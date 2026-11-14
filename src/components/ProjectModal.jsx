@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { X, Github, ArrowRight, CheckCircle2 } from 'lucide-react';
+import ProjectVisual from './ProjectVisual';
 
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
@@ -73,6 +74,16 @@ export default function ProjectModal({ project, onClose }) {
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
               {project.solution}
             </p>
+          </div>
+        </div>
+
+        {/* Live Architecture Visual Simulation */}
+        <div>
+          <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold mb-2">
+            System State & Dataflow Diagram
+          </h4>
+          <div className="rounded-xl overflow-hidden border border-white/10 shadow-lg">
+            <ProjectVisual projectId={project.id} category={project.category} />
           </div>
         </div>
 

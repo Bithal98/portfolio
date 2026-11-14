@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, ArrowDown, FileText, Github, Linkedin, Terminal, Sparkles, Cpu, Layers, Activity, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, FileText, Github, Linkedin, Terminal, Sparkles, Cpu, Layers, Activity, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { profileData } from '../data/profileData';
 
 export default function Hero({ onOpenResume }) {
@@ -20,56 +20,32 @@ export default function Hero({ onOpenResume }) {
     return () => clearInterval(timer);
   }, []);
 
-  const scrollToAbout = () => {
-    const el = document.getElementById('about');
+  const scrollToProjects = () => {
+    const el = document.getElementById('featured');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative pt-28 pb-24 md:pt-36 md:pb-32 overflow-hidden cyber-grid-dark">
-      {/* Background radial glow accents: Emerald & Subtle Cosmic Violet */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[380px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-      <div className="absolute top-1/3 right-10 w-[420px] h-[320px] bg-violet-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden cyber-grid-dark">
+      {/* Background ambient radial glow accents */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/3 right-10 w-[450px] h-[350px] bg-violet-500/10 rounded-full blur-[130px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Headline, Avatar, and Positioning */}
+          {/* Left Column: Headline, Bio & Call To Actions */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Top Row: User Avatar Circle + Status Pill */}
-            <div className="flex items-center gap-3.5">
-              
-              {/* Sleek Circular Profile Avatar Box with Zoom & Animated Halo */}
-              <a
-                href="#about"
-                className="group relative flex items-center justify-center cursor-pointer"
-                title="Click to view About Bithal"
-              >
-                <div className="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-emerald-400 via-teal-300 to-violet-500 group-hover:scale-110 shadow-[0_0_20px_rgba(16,185,129,0.5)] transition-all duration-300">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-slate-950 border border-black relative">
-                    <img
-                      src="./bithal.jpg"
-                      alt="Bithal Kumar Sahoo"
-                      className="w-full h-full object-cover object-center group-hover:scale-120 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-                {/* Active Green Dot */}
-                <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-[#040711] shadow-sm"></span>
-              </a>
-
-              {/* Status Pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:border-emerald-400 transition-colors">
-                <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="text-xs font-mono font-medium text-slate-300">
-                  Analyst @ StratLytics • <span className="text-emerald-400 font-semibold">Open for AI/ML Roles</span>
-                </span>
-              </div>
-
+            {/* Top Identity Pill */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/95 border border-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:border-emerald-400 transition-colors">
+              <span className="flex h-2.5 w-2.5 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span className="text-xs font-mono font-medium text-slate-200">
+                <strong className="text-white">Bithal Kumar Sahoo</strong> • Analyst @ StratLytics • <span className="text-emerald-400 font-semibold">Open for AI/ML Roles</span>
+              </span>
             </div>
 
             {/* Main Headline */}
@@ -82,19 +58,19 @@ export default function Hero({ onOpenResume }) {
 
             {/* Subtitle / Bio */}
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
-              <span className="text-white font-medium">Bithal Kumar Sahoo</span> — AI/ML Engineer specializing in{" "}
-              <span className="text-emerald-400 font-medium">Multi-Agent Systems (LangGraph)</span>,{" "}
-              <span className="text-violet-400 font-medium">Generative AI & LLMs from Scratch</span>,{" "}
-              <span className="text-amber-400 font-medium">Credit Risk Scorecards</span>, and{" "}
-              <span className="text-teal-300 font-medium">Computer Vision</span>. Transforming advanced research into resilient production architectures.
+              AI/ML Engineer specializing in{" "}
+              <span className="text-emerald-400 font-semibold">Multi-Agent Systems (LangGraph)</span>,{" "}
+              <span className="text-violet-400 font-semibold">Generative AI & 90M Transformers from Scratch</span>,{" "}
+              <span className="text-amber-400 font-semibold">Credit Risk Scorecards (WoE/IV)</span>, and{" "}
+              <span className="text-teal-300 font-semibold">Computer Vision (YOLOv9)</span>. Transforming complex theoretical research into resilient production architectures.
             </p>
 
             {/* Quick Stats Grid with Hover Lift */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-1">
               {profileData.stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 rounded-xl bg-slate-900/70 border border-white/[0.08] hover:border-emerald-500/40 hover:bg-slate-900 hover:-translate-y-1 hover:shadow-[0_10px_20px_-5px_rgba(16,185,129,0.2)] transition-all duration-300 cursor-default"
+                  className="p-3.5 rounded-xl bg-slate-900/80 border border-white/[0.08] hover:border-emerald-500/50 hover:bg-slate-900 hover:-translate-y-1 hover:shadow-[0_10px_20px_-5px_rgba(16,185,129,0.2)] transition-all duration-300 cursor-default"
                 >
                   <div className="text-xl sm:text-2xl font-bold font-mono text-emerald-400">{stat.value}</div>
                   <div className="text-xs text-slate-400 font-medium mt-0.5">{stat.label}</div>
@@ -106,9 +82,9 @@ export default function Hero({ onOpenResume }) {
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <a
                 href="#featured"
-                className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold text-sm shadow-[0_0_25px_rgba(16,185,129,0.35)] hover:shadow-[0_0_35px_rgba(16,185,129,0.6)] transition-all duration-300 transform hover:-translate-y-1"
+                className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold text-sm shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:shadow-[0_0_35px_rgba(16,185,129,0.6)] transition-all duration-300 transform hover:-translate-y-1"
               >
-                <span>Explore Projects (15)</span>
+                <span>Explore 15 Systems</span>
                 <ArrowRight className="w-4 h-4 text-slate-950" />
               </a>
 
@@ -157,112 +133,76 @@ export default function Hero({ onOpenResume }) {
 
           </div>
 
-          {/* Right Column: Interactive AI Telemetry Terminal */}
+          {/* Right Column: Prominent Photo Portrait & Telemetry Card */}
           <div className="lg:col-span-5">
-            <div className="rounded-2xl bg-[#090e1a]/95 border border-white/[0.12] hover:border-emerald-500/40 shadow-2xl shadow-emerald-950/20 backdrop-blur-2xl overflow-hidden text-left relative transition-all duration-300 hover:-translate-y-1">
+            <div className="relative group mx-auto max-w-md">
               
-              {/* Terminal Title Bar */}
-              <div className="flex items-center justify-between px-4 py-3 bg-[#060a12] border-b border-white/[0.08]">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-rose-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                  <span className="text-xs font-mono text-slate-400 ml-2">bithal-ai-runtime ~ telemetry</span>
-                </div>
-                <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 bg-emerald-950/70 px-2 py-0.5 rounded border border-emerald-800/60">
-                  <Activity className="w-3 h-3 animate-spin text-emerald-400" />
-                  <span>ONLINE</span>
-                </div>
-              </div>
+              {/* Outer Neon Glow Halo */}
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-violet-500 rounded-3xl blur-xl opacity-50 group-hover:opacity-85 transition duration-500"></div>
 
-              {/* Terminal Body */}
-              <div className="p-5 space-y-4 font-mono text-xs">
+              {/* Main Card Shell */}
+              <div className="relative rounded-2xl overflow-hidden bg-[#090e1c] border-2 border-white/[0.15] group-hover:border-emerald-400 shadow-2xl transition-all duration-500">
                 
-                {/* Active Architecture Subsystems */}
-                <div className="space-y-2">
-                  <div className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold flex items-center justify-between">
-                    <span>Engineered AI Subsystems</span>
-                    <span className="text-emerald-400 text-[10px]">ALL ACTIVE</span>
+                {/* Photo Header */}
+                <div className="aspect-[4/4.2] overflow-hidden bg-slate-950 relative">
+                  <img
+                    src="./bithal.jpg"
+                    alt="Bithal Kumar Sahoo — AI/ML Engineer"
+                    className="w-full h-full object-cover object-top transform transition-transform duration-700 ease-out group-hover:scale-106"
+                  />
+
+                  {/* Gradient Shadow Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090e1c] via-transparent to-transparent opacity-85"></div>
+
+                  {/* Online Status Badge */}
+                  <div className="absolute top-4 right-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-white shadow-lg">
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span className="text-emerald-400 font-bold">ONLINE</span>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <a
-                      href="#featured"
-                      className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-emerald-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group"
-                    >
-                      <div className="flex items-center gap-2">
-                        <Cpu className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
-                        <span className="text-slate-200 group-hover:text-emerald-300 transition-colors">LangGraph Multi-Agent Workflows</span>
-                      </div>
-                      <span className="text-[10px] text-emerald-400 font-bold bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-900/50">STATE GRAPH</span>
-                    </a>
-
-                    <a
-                      href="#research"
-                      className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-violet-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group"
-                    >
-                      <div className="flex items-center gap-2">
-                        <Sparkles className="w-3.5 h-3.5 text-violet-400 group-hover:scale-110 transition-transform" />
-                        <span className="text-slate-200 group-hover:text-violet-300 transition-colors">OdiaLLM Transformer (From Scratch)</span>
-                      </div>
-                      <span className="text-[10px] text-violet-400 font-bold bg-violet-950/60 px-1.5 py-0.5 rounded border border-violet-900/50">90M PARAMS</span>
-                    </a>
-
-                    <a
-                      href="#featured"
-                      className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-amber-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group"
-                    >
-                      <div className="flex items-center gap-2">
-                        <ShieldCheck className="w-3.5 h-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
-                        <span className="text-slate-200 group-hover:text-amber-300 transition-colors">Credit Risk Scorecards & Reject Inference</span>
-                      </div>
-                      <span className="text-[10px] text-amber-400 font-bold bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-900/50">KS 0.79</span>
-                    </a>
-
-                    <a
-                      href="#featured"
-                      className="p-2.5 rounded-lg bg-slate-900/80 border border-white/[0.06] hover:border-teal-500/50 hover:bg-slate-900 transition-all flex items-center justify-between cursor-pointer group"
-                    >
-                      <div className="flex items-center gap-2">
-                        <Layers className="w-3.5 h-3.5 text-teal-400 group-hover:scale-110 transition-transform" />
-                        <span className="text-slate-200 group-hover:text-teal-300 transition-colors">YOLOv9 ANPR & Edge Vision</span>
-                      </div>
-                      <span className="text-[10px] text-teal-400 font-bold bg-teal-950/60 px-1.5 py-0.5 rounded border border-teal-900/50">32 FPS</span>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Real-time Simulated Telemetry Stream */}
-                <div className="pt-2 border-t border-white/[0.08] space-y-2">
-                  <div className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold flex items-center justify-between">
-                    <span>Live Pipeline Monitor</span>
-                    <span className="text-[10px] text-emerald-400 font-mono">Running</span>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-black/70 border border-white/10 font-mono text-[11px] space-y-1 min-h-[75px]">
-                    <div className="flex items-center justify-between text-slate-400">
-                      <span className="text-emerald-400 font-bold">[{telemetryLogs[activeLogIndex].source}]</span>
-                      <span className="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300">
-                        {telemetryLogs[activeLogIndex].status}
-                      </span>
+                  {/* Identification Overlay on Photo */}
+                  <div className="absolute bottom-3 left-4 right-4 p-3 rounded-xl bg-slate-950/90 backdrop-blur-md border border-white/10 text-left">
+                    <div className="text-sm font-bold text-white font-mono flex items-center justify-between">
+                      <span>Bithal Kumar Sahoo</span>
+                      <span className="text-[10px] text-emerald-400 font-semibold">AI/ML ENGINEER</span>
                     </div>
-                    <p className="text-slate-200 pt-1 leading-snug">
-                      &gt; {telemetryLogs[activeLogIndex].text}
-                    </p>
+                    <div className="text-xs text-slate-300 mt-0.5 font-sans">
+                      Analyst at StratLytics Consulting • Credit Risk & LLMs
+                    </div>
                   </div>
                 </div>
 
-                {/* Repository Link Footer */}
-                <div className="pt-2 flex items-center justify-between text-[11px] text-slate-400 border-t border-white/[0.08]">
-                  <span>GitHub: <span className="text-slate-200 font-semibold">@Bithal98</span></span>
-                  <a
-                    href="https://github.com/Bithal98"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-400 hover:text-emerald-300 flex items-center gap-1 font-semibold hover:underline"
-                  >
-                    View 22+ Repositories &rarr;
-                  </a>
+                {/* Sub-Card: Live Subsystem Telemetry */}
+                <div className="p-4 bg-[#060a14] border-t border-white/[0.08] text-left font-mono text-xs space-y-2">
+                  <div className="flex items-center justify-between text-[11px] text-slate-400 pb-1">
+                    <span className="flex items-center gap-1.5 text-emerald-400 font-bold">
+                      <Activity className="w-3.5 h-3.5 animate-spin text-emerald-400" />
+                      <span>RUNTIME SUBSYSTEMS</span>
+                    </span>
+                    <span className="text-[10px] text-slate-500">LIVE</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-1.5 text-[10px]">
+                    <div className="p-1.5 rounded bg-slate-900 border border-white/5">
+                      <div className="text-slate-400 text-[8px]">AGENTIC AI</div>
+                      <div className="text-emerald-400 font-bold truncate">LangGraph Multi-Agent</div>
+                    </div>
+                    <div className="p-1.5 rounded bg-slate-900 border border-white/5">
+                      <div className="text-slate-400 text-[8px]">PYTORCH LLM</div>
+                      <div className="text-violet-400 font-bold truncate">OdiaLLM (90M Params)</div>
+                    </div>
+                    <div className="p-1.5 rounded bg-slate-900 border border-white/5">
+                      <div className="text-slate-400 text-[8px]">FINTECH RISK</div>
+                      <div className="text-amber-400 font-bold truncate">Scorecards (KS 0.79)</div>
+                    </div>
+                    <div className="p-1.5 rounded bg-slate-900 border border-white/5">
+                      <div className="text-slate-400 text-[8px]">EDGE VISION</div>
+                      <div className="text-teal-400 font-bold truncate">YOLOv9 ANPR (32 FPS)</div>
+                    </div>
+                  </div>
                 </div>
 
               </div>
@@ -273,13 +213,13 @@ export default function Hero({ onOpenResume }) {
         </div>
 
         {/* Clickable Animated Bouncing Scroll Indicator */}
-        <div className="pt-16 pb-2 flex justify-center">
+        <div className="pt-14 pb-2 flex justify-center">
           <button
-            onClick={scrollToAbout}
+            onClick={scrollToProjects}
             className="group flex flex-col items-center gap-2 text-slate-400 hover:text-emerald-400 transition-all duration-300 cursor-pointer"
           >
             <span className="text-[11px] font-mono tracking-widest uppercase text-slate-500 group-hover:text-emerald-400 transition-colors">
-              Scroll Down to Explore
+              Explore Featured Systems & Visualizations
             </span>
             <div className="w-6 h-10 rounded-full border-2 border-white/20 group-hover:border-emerald-400 flex items-start justify-center p-1.5 transition-colors">
               <div className="w-1.5 h-2.5 rounded-full bg-emerald-400 animate-bounce"></div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Github, Sparkles } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
+import ProjectVisual from './ProjectVisual';
 
 export default function FeaturedProjects({ onSelectProject }) {
   const featured = projectsData.filter(p => p.featured);
@@ -57,7 +58,7 @@ export default function FeaturedProjects({ onSelectProject }) {
                 <div>
                   
                   {/* Card Top: Rank, Category, and Badge */}
-                  <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-5">
+                  <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-4">
                     <div className="flex items-center gap-2.5">
                       <span className="font-mono text-emerald-400 font-bold text-lg">0{project.rank || idx + 1}.</span>
                       <span className="px-2.5 py-0.5 rounded-full bg-slate-900 border border-white/[0.08] text-slate-300 text-xs font-mono">
@@ -67,6 +68,11 @@ export default function FeaturedProjects({ onSelectProject }) {
                     <span className={`px-2.5 py-0.5 rounded-full border text-xs font-mono font-medium ${badgeColor}`}>
                       {project.badge}
                     </span>
+                  </div>
+
+                  {/* Architecture & Visual System Mockup */}
+                  <div className="mb-5 rounded-xl overflow-hidden shadow-lg border border-white/[0.06] hover:border-emerald-500/30 transition-colors">
+                    <ProjectVisual projectId={project.id} category={project.category} compact={false} />
                   </div>
 
                   {/* Title & Tagline */}

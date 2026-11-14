@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight, Github } from 'lucide-react';
+import ProjectVisual from './ProjectVisual';
 
 export default function ProjectCard({ project, onSelect }) {
   return (
@@ -14,6 +15,11 @@ export default function ProjectCard({ project, onSelect }) {
           <span className="text-[11px] font-mono text-slate-400 px-2 py-0.5 rounded bg-slate-900 border border-white/[0.06]">
             {project.badge}
           </span>
+        </div>
+
+        {/* Visual Architecture Representation */}
+        <div className="mb-3 rounded-lg overflow-hidden border border-white/[0.06]">
+          <ProjectVisual projectId={project.id} category={project.category} compact={true} />
         </div>
 
         {/* Title */}
